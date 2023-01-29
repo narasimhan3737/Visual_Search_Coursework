@@ -1,0 +1,27 @@
+function [p,q]=precision_recall(NIMG,gt_image,pred_image,eln)
+
+precision_val=[];
+recall_val=[];
+correct=zeros([1,NIMG]);
+incorrect=zeros([1,NIMG]);
+for i=1:NIMG
+    val = str2double(gt_image(i)) == str2double(pred_image(i));
+    if val == 1
+        correct=correct+1;
+    else
+        incorrect = incorrect+1;
+    end
+    precision = correct / i;
+    recall = correct/ eln;
+    
+%     fprintf("i %d Correct %d eln %d precision %f recall %f \n",i,correct,eln,precision,recall)
+
+    precision_val(i)=precision;
+    recall_val(i)=recall;
+end
+
+p=precision_val(2:NIMG);
+q=recall_val(2:NIMG);
+
+average_precision = sum(precision_val .* correct_at_n) / CAT_HIST(1,run);
+return;

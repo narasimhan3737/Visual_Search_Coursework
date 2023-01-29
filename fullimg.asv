@@ -1,0 +1,9 @@
+function f=fullimg(img,DATASET_FOLDER)
+imgr=[];
+for i=1:length(img)
+    imgfname_full=([DATASET_FOLDER,'/Images/',img,'.bmp']);
+    imgr=[imgr , imgfname_full];
+end
+
+F = imgfname_full;
+return

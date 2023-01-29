@@ -1,0 +1,15 @@
+function F=SIFT(img)
+
+% F=rand(1,30);
+
+x = detectSIFTFeatures(rgb2gray(img));
+zer(1:1080)=0;
+SIFTMetrics=x.Location;
+zer(1:length(SIFTMetrics))=SIFTMetrics;
+F=zer; 
+% Returns a row [rand rand .... rand] representing an image descriptor
+% computed from image 'img'
+
+% Note img is a normalised RGB image i.e. colours range [0,1] not [0,255].
+
+return;
